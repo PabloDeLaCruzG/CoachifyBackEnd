@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pablodelacruz.coachify.model.HistorialMedico;
 
-public interface HistorialMedicoRepositoy extends JpaRepository<HistorialMedico, Long>{
+public interface HistorialMedicoRepository extends JpaRepository<HistorialMedico, Long>{
     
 }
