@@ -13,6 +13,7 @@ public class Progresos {
     private double peso;
     private double imc;
     private double porGraCor;
+    private String otrasMedidas;
 
     @ManyToOne
     private Cliente cliente;
@@ -22,11 +23,12 @@ public class Progresos {
     }
 
     // Constructor con todos los campos
-    public Progresos(Date fecha, double peso, double imc, double porGraCor, Cliente cliente) {
+    public Progresos(Date fecha, double peso, double imc, double porGraCor, String otrasMedidas, Cliente cliente) {
         this.fecha = fecha;
         this.peso = peso;
         this.imc = imc;
         this.porGraCor = porGraCor;
+        this.otrasMedidas = otrasMedidas;
         this.cliente = cliente;
     }
 
@@ -70,6 +72,14 @@ public class Progresos {
 
     public void setPorGraCor(double porGraCor) {
         this.porGraCor = porGraCor;
+    }
+
+    public String getOtrasMedidas() {
+        return otrasMedidas;
+    }
+
+    public void setOtrasMedidas(String otrasMedidas) {
+        this.otrasMedidas = otrasMedidas;
     }
 
     public Cliente getCliente() {
