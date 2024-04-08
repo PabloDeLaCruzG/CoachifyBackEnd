@@ -18,11 +18,10 @@ public class Usuario {
     }
 
     // Constructor con todos los campos
-    public Usuario(String mail, String telefono, String nombreUsuario, String contrasena) {
+    public Usuario(String mail, String telefono, String nombreUsuario) {
         this.mail = mail;
         this.telefono = telefono;
         this.nombreUsuario = nombreUsuario;
-        this.contrasena = contrasena;
     }
 
     // Getters y setters
