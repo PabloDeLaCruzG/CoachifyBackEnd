@@ -48,4 +48,8 @@ public class ObjetivosService {
     public void deleteObjetivos(Long id) {
         objetivosRepository.deleteById(id);
     }
+
+    public Objetivos getObjetivosByClienteId(Long clienteID) {
+        return objetivosRepository.findByCliente_clienteID(clienteID);
+    }
 }

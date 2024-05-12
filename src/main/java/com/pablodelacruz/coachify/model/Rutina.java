@@ -14,19 +14,22 @@ public class Rutina {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rutinaID;
 
+    private String nombre;
+
     private Date fechaInicio;
     private Date fechaFin;
     private String notas;
 
     @ManyToOne
-    @JoinColumn(name = "clienteID") // Nombre de la columna en la tabla Rutinas
-    private Cliente cliente;
+    @JoinColumn(name = "clienteID")
+    private Cliente clienteID;
 
     // Constructor con todos los campos
-    public Rutina(Date fechaInicio, Date fechaFin, String notas, Cliente cliente) {
+    public Rutina(String nombre, Date fechaInicio, Date fechaFin, String notas, Cliente clienteID) {
+        this.nombre = nombre;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.notas = notas;
-        this.cliente = cliente;
+        this.clienteID = clienteID;
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.pablodelacruz.coachify.repository.ClienteRepository;
 import com.pablodelacruz.coachify.model.Cliente;
+
 import java.util.*;
 
 @Service
@@ -34,6 +35,7 @@ public class ClienteService {
                     existingCliente.setGenero(clienteDetails.getGenero());
                     existingCliente.setTelefono(clienteDetails.getTelefono());
                     existingCliente.setDireccion(clienteDetails.getDireccion());
+                    existingCliente.setImg(clienteDetails.getImg());
                     return clienteRepository.save(existingCliente);
                 })
                 .orElse(null);
@@ -42,6 +44,5 @@ public class ClienteService {
     public void delete(Long id) {
         clienteRepository.deleteById(id);
     }
-
 
 }

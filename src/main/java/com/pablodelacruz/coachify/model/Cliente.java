@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +14,9 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clienteID;
 
+    @Lob
+    private String img;
+
     private String nombreCompleto;
     private Date fechaNacimiento;
     private String genero;
@@ -22,8 +25,10 @@ public class Cliente {
     private String telefono;
 
     // Constructor con todos los campos
-    public Cliente(String nombreCompleto, Date fechaNacimiento, String genero, String direccion, String mail,
-            String telefono) {
+    public Cliente(String img, String nombreCompleto, Date fechaNacimiento, String genero, String direccion, String mail,
+        String telefono) {
+            
+        this.img = img;
         this.nombreCompleto = nombreCompleto;
         this.fechaNacimiento = fechaNacimiento;
         this.genero = genero;

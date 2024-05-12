@@ -31,9 +31,10 @@ public class RutinaEjercicioService {
         Optional<RutinaEjercicio> optionalRutinaEjercicio = rutinaEjercicioRepository.findById(id);
         if (optionalRutinaEjercicio.isPresent()) {
             RutinaEjercicio rutinaEjercicio = optionalRutinaEjercicio.get();
-            rutinaEjercicio.setRutina(rutinaEjercicioDetails.getRutina());
-            rutinaEjercicio.setEjercicio(rutinaEjercicioDetails.getEjercicio());
+            rutinaEjercicio.setRutinaID(rutinaEjercicioDetails.getRutinaID());
+            rutinaEjercicio.setImg(rutinaEjercicioDetails.getImg());
             rutinaEjercicio.setDiaSemana(rutinaEjercicioDetails.getDiaSemana());
+            rutinaEjercicio.setNombre(rutinaEjercicioDetails.getNombre());
             rutinaEjercicio.setSeries(rutinaEjercicioDetails.getSeries());
             rutinaEjercicio.setRepeticiones(rutinaEjercicioDetails.getRepeticiones());
             return rutinaEjercicioRepository.save(rutinaEjercicio);
@@ -45,5 +46,9 @@ public class RutinaEjercicioService {
 
     public void deleteRutinaEjercicio(Long id) {
         rutinaEjercicioRepository.deleteById(id);
+    }
+
+    public List<RutinaEjercicio> getEjerciciosByRutinaID(Long rutinaID) {
+        return rutinaEjercicioRepository.findByRutinaID_RutinaID(rutinaID);
     }
 }

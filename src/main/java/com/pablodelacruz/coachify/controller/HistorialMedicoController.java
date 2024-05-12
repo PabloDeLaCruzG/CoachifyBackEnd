@@ -60,5 +60,14 @@ public class HistorialMedicoController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/cliente/{clienteID}")
+    public ResponseEntity<?> getHistorialMedicoByClienteID(@PathVariable("clienteID") Long clienteID) {
+        try {
+            return new ResponseEntity<>(historialMedicoService.getHistorialMedicoByClienteID(clienteID), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     
 }

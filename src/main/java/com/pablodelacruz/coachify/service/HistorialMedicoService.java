@@ -47,4 +47,8 @@ public class HistorialMedicoService {
     public void deleteHistorialMedico(Long id) {
         historialMedicoRepository.deleteById(id);
     }
+
+    public HistorialMedico getHistorialMedicoByClienteID(Long clienteID) {
+        return historialMedicoRepository.findByCliente_clienteID(clienteID);
+    }
 }

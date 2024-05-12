@@ -9,7 +9,7 @@ import com.pablodelacruz.coachify.model.RutinaEjercicio;
 import com.pablodelacruz.coachify.service.RutinaEjercicioService;
 
 @RestController
-@RequestMapping("/api/rutinaEjercicios")
+@RequestMapping("/api/ejercicios")
 public class RutinaEjercicioController {
     
     @Autowired

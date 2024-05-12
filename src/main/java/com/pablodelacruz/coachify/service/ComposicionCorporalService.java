@@ -48,4 +48,8 @@ public class ComposicionCorporalService {
     public void deleteComposicionCorporal(Long id) {
         composicionCorporalRepository.deleteById(id);
     }
+
+    public ComposicionCorporal getComposicionCorporalByClienteId(Long clienteID) {
+        return composicionCorporalRepository.findByCliente_clienteID(clienteID);
+    }
 }

@@ -1,11 +1,14 @@
 package com.pablodelacruz.coachify.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.pablodelacruz.coachify.model.Cliente;
 import com.pablodelacruz.coachify.model.Rutina;
+import com.pablodelacruz.coachify.service.ClienteService;
 import com.pablodelacruz.coachify.service.RutinaService;
 
 @RestController
@@ -14,6 +17,9 @@ public class RutinaController {
     
     @Autowired
     RutinaService rutinaService;
+
+    @Autowired
+    private ClienteService clienteService;
 
     @GetMapping()
     public ResponseEntity<?> getAllRutinas() {
@@ -60,5 +66,18 @@ public class RutinaController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Rutina>> getRutinasByClienteId(@PathVariable Long clienteId) {
+        Cliente cliente = clienteService.getCliente(clienteId).orElse(null);
+        if (cliente != null) {
+            List<Rutina> rutinas = rutinaService.getRutinasByClienteID(cliente);
+            return new ResponseEntity<>(rutinas, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    
     
 }

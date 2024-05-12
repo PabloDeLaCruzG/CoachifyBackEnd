@@ -33,6 +33,16 @@ public class ComposicionCorporalController {
         }
     }
 
+    
+    @PostMapping()
+    public ResponseEntity<?> createComposicionCorporal(@RequestBody ComposicionCorporal composicionCorporal) {
+        try {
+            return new ResponseEntity<>(composicionCorporalService.createComposicionCorporal(composicionCorporal), HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PutMapping("/{composicioncorporalID}")
     public ResponseEntity<?> updateComposicionCorporal(@PathVariable("composicioncorporalID") Long id, @RequestBody ComposicionCorporal composicionCorporalDetails) {
         try {
@@ -47,6 +57,15 @@ public class ComposicionCorporalController {
         try {
             composicionCorporalService.deleteComposicionCorporal(id);
             return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/cliente/{clienteID}")
+    public ResponseEntity<?> getComposicionCorporalByClienteId(@PathVariable("clienteID") Long clienteID) {
+        try {
+            return new ResponseEntity<>(composicionCorporalService.getComposicionCorporalByClienteId(clienteID), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }

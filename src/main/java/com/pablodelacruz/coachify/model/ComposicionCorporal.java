@@ -13,7 +13,7 @@ public class ComposicionCorporal {
     private Long composicionID;
 
     private double peso;
-    private double altura;
+    private int altura;
     private double imc;
     private double porGraCor;
     private double cirCintura;
@@ -24,7 +24,7 @@ public class ComposicionCorporal {
     private Cliente cliente;
 
     // Constructor con todos los campos
-    public ComposicionCorporal(double peso, double altura, double imc, double porGraCor, double cirCintura,
+    public ComposicionCorporal(double peso, int altura, double imc, double porGraCor, double cirCintura,
             double cirCadera, Cliente cliente) {
         this.peso = peso;
         this.altura = altura;

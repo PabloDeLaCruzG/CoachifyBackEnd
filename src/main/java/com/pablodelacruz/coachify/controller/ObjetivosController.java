@@ -60,5 +60,14 @@ public class ObjetivosController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/cliente/{clienteID}")
+    public ResponseEntity<?> getObjetivosByClienteId(@PathVariable("clienteID") Long clienteID) {
+        try {
+            return new ResponseEntity<>(objetivosService.getObjetivosByClienteId(clienteID), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     
 }

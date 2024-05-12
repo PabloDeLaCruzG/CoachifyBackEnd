@@ -25,6 +25,7 @@ public class ClienteController {
         }
     }
 
+    
     @GetMapping("/{clienteID}")
     public ResponseEntity<?> getClienteById(@PathVariable("clienteID") Long id) {
         try {

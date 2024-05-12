@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pablodelacruz.coachify.model.Cliente;
 import com.pablodelacruz.coachify.model.Rutina;
 import com.pablodelacruz.coachify.repository.RutinaRepository;
 
@@ -45,10 +46,11 @@ public class RutinaService {
             // Get the Rutina
             Rutina rutina = optionalRutina.get();
             // Update the fields with the new details
+            rutina.setNombre(rutinaDetails.getNombre());
             rutina.setFechaInicio(rutinaDetails.getFechaInicio());
             rutina.setFechaFin(rutinaDetails.getFechaFin());
             rutina.setNotas(rutinaDetails.getNotas());
-            rutina.setCliente(rutinaDetails.getCliente());
+            rutina.setClienteID(rutinaDetails.getClienteID());
             // Save the updated Rutina and return it
             return rutinaRepository.save(rutina);
         } else {
@@ -59,5 +61,9 @@ public class RutinaService {
 
     public void deleteRutina(Long id) {
         rutinaRepository.deleteById(id);
+    }
+
+    public List<Rutina> getRutinasByClienteID(Cliente clienteID) {
+        return rutinaRepository.findAllByClienteID(clienteID);
     }
 }

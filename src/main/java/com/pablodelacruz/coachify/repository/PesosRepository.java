@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pablodelacruz.coachify.model.Cliente;
-import com.pablodelacruz.coachify.model.Rutina;
+import com.pablodelacruz.coachify.model.Pesos;
 
-public interface RutinaRepository extends JpaRepository<Rutina, Long> {
+public interface PesosRepository extends JpaRepository<Pesos, Long> {
     
-    List<Rutina> findAllByClienteID(Cliente clienteId);
+    List<Pesos> findAllByClienteID(Cliente clienteId);
 }

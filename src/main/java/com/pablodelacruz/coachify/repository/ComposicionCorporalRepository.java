@@ -6,4 +6,6 @@ import com.pablodelacruz.coachify.model.ComposicionCorporal;
 
 public interface ComposicionCorporalRepository extends JpaRepository<ComposicionCorporal, Long>{
     
+        ComposicionCorporal findByCliente_clienteID(Long clienteID);
+    
 }

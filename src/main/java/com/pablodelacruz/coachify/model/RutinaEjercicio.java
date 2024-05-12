@@ -15,23 +15,25 @@ public class RutinaEjercicio {
     private Long rutinaEjercicioID;
 
     @ManyToOne
-    @JoinColumn(name = "rutina_id") // Nombre de la columna en la tabla Rutinas
-    private Rutina rutina;
-
-    @ManyToOne
-    @JoinColumn(name = "ejercicio_id") // Nombre de la columna en la tabla Ejercicios
-    private Ejercicio ejercicio;
+    @JoinColumn(name = "rutinaID") // Nombre de la columna en la tabla Rutinas
+    private Rutina rutinaID;
 
     @Enumerated(EnumType.STRING)
     private DiaSemana diaSemana;
+
+    private String nombre;
+
+    @Lob
+    private String img;
 
     private int series;
     private int repeticiones;
 
     // Constructor con todos los campos
-    public RutinaEjercicio(Rutina rutina, Ejercicio ejercicio, DiaSemana diaSemana, int series, int repeticiones) {
-        this.rutina = rutina;
-        this.ejercicio = ejercicio;
+    public RutinaEjercicio(Rutina rutinaID, String img, DiaSemana diaSemana, String nombre, int series, int repeticiones) {
+        this.nombre = nombre;
+        this.rutinaID = rutinaID;
+        this.img = img;
         this.diaSemana = diaSemana;
         this.series = series;
         this.repeticiones = repeticiones;
