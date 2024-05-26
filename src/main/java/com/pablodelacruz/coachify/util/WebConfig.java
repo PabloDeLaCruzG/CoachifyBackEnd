@@ -10,9 +10,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
         registry.addMapping("/**") // Permitimos solicitudes desde todas las rutas
-                .allowedOrigins("http://localhost:3000") // Permitimos solicitudes desde el frontend en el puerto 3000
+                .allowedOrigins("https://coachify-fitness.web.app") // Permitimos solicitudes desde el frontend en el puerto 3000
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Permitimos los métodos HTTP
-                .allowedHeaders("*"); // Permitimos todos los encabezados
+                .allowedHeaders("*")
+                .allowCredentials(true); // Permitimos todos los encabezados
     }
 }
 
