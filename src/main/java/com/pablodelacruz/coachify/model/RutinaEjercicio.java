@@ -24,6 +24,7 @@ public class RutinaEjercicio {
     private String nombre;
 
     @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String img;
 
     private int series;

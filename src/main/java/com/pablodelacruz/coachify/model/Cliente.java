@@ -15,6 +15,7 @@ public class Cliente {
     private Long clienteID;
 
     @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String img;
 
     private String nombreCompleto;
