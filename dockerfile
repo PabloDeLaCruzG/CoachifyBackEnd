@@ -1,3 +1,3 @@
-FROM openjdk:11-jre-slim
-COPY target/coachify-0.0.1-SNAPSHOT.jar /app.jar
-CMD ["java", "-jar", "/app.jar"]
+FROM amazoncorretto:21-alpine-jdk
+COPY target/coachify-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
