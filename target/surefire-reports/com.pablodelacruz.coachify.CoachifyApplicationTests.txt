@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.pablodelacruz.coachify.CoachifyApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.595 s -- in com.pablodelacruz.coachify.CoachifyApplicationTests
