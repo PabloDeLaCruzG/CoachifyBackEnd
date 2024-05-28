@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(indexes = {@Index(columnList = "clienteID")})
 public class HistorialMedico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +19,8 @@ public class HistorialMedico {
     private String restricciones;
     private String informesMedicos;
 
-    @ManyToOne
-    @JoinColumn(name = "clienteID") // Nombre de la columna en la tabla HistorialMedico
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "clienteID")
     private Cliente cliente;
 
     // Constructor con todos los campos

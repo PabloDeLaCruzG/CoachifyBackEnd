@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(indexes = {@Index(columnList = "clienteID")})
 public class ComposicionCorporal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +20,8 @@ public class ComposicionCorporal {
     private double cirCintura;
     private double cirCadera;
 
-    @ManyToOne
-    @JoinColumn(name = "clienteID") // Nombre de la columna en la tabla ComposicionCorporal
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "clienteID")
     private Cliente cliente;
 
     // Constructor con todos los campos

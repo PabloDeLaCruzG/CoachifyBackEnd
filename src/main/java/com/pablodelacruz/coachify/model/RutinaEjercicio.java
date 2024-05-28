@@ -14,7 +14,7 @@ public class RutinaEjercicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rutinaEjercicioID;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rutinaID") // Nombre de la columna en la tabla Rutinas
     private Rutina rutinaID;
 

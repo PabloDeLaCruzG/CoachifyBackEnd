@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(indexes = {@Index(columnList = "clienteID")})
 public class Rutina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,7 @@ public class Rutina {
     private Date fechaFin;
     private String notas;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clienteID")
     private Cliente clienteID;
 

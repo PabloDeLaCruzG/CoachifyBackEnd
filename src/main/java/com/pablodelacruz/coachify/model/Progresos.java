@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(indexes = {@Index(columnList = "clienteID")})
 public class Progresos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +21,8 @@ public class Progresos {
     private double porGraCor;
     private String otrasMedidas;
 
-    @ManyToOne
-    @JoinColumn(name = "clienteID") // Nombre de la columna en la tabla Progresos
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "clienteID")
     private Cliente cliente;
 
     // Constructor con todos los campos

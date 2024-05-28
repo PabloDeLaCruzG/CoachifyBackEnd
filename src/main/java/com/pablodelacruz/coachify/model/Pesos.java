@@ -1,24 +1,22 @@
 package com.pablodelacruz.coachify.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.*;;
+
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(indexes = {@Index(columnList = "clienteID")})
 public class Pesos {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pesoID;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente clienteID;
 
     private double peso;
